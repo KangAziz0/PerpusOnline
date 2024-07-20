@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import { buku } from "./src/assets/buku.png"
 module.exports = {
   darkMode: ["class"],
   content: [
