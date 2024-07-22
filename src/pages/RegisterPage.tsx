@@ -15,7 +15,6 @@ import { Link } from "react-router-dom"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Label } from "@/components/ui/label"
 
 const registerFormSchema = z.object({
     fullname: z.string().min(6, "min 6 karakter").max(16, "max 16 karakter"),
@@ -73,20 +72,20 @@ export function RegisterPage() {
                             <CardDescription>Please enter your credentials</CardDescription>
                         </CardHeader>
                         <CardContent>
-                            {FormInputText.map((values,index)=> (
-                                <FormField                  
-                                key={index}      
-                                control={control}
-                                name={values.name}
-                                render={({ field }) => (
-                                    <FormItem>
-                                        <Label>{values.label}</Label>
-                                        <FormControl>
-                                            <Input placeholder={values.placeholder} type={values.type} {...field} />
-                                        </FormControl>
-                                           <FormMessage />
-                                    </FormItem>
-                                )}
+                            {FormInputText.map((values, index) => (
+                                <FormField
+                                    key={index}
+                                    control={control}
+                                    name={values.name}
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormLabel>{values.label}</FormLabel>
+                                            <FormControl>
+                                                <Input placeholder={values.placeholder} type={values.type} {...field} />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
                                 />
                             ))}
                         </CardContent>
